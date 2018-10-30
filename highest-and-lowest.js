@@ -11,3 +11,12 @@ function highAndLow(numbers) {
 }
 
 console.log(highAndLow(testArray));
+
+
+const highAndLow2 = (numbers) => {
+  numbers = numbers.split(' ');
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`; 
+}
+
+console.log(highAndLow2(testArray));
+
