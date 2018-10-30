@@ -14,3 +14,14 @@ function friendFilter(list) {
 }
 
 console.log(friendFilter(wordList));
+
+const friendFilter2 = (list) => {
+  let friends = [];
+
+  list.forEach((word) => {
+    word.length === 4 ? friends.push(word) : null;
+  });
+  return friends;
+};
+
+console.log(friendFilter2(wordList));
