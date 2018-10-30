@@ -9,10 +9,8 @@ function friendFilter(list) {
       friends.push(list[i]);
     }
   }
-
   return friends;
 }
-
 console.log(friendFilter(wordList));
 
 const friendFilter2 = (list) => {
@@ -23,5 +21,11 @@ const friendFilter2 = (list) => {
   });
   return friends;
 };
-
 console.log(friendFilter2(wordList));
+
+
+const friendFilter3 = (list) => {
+  return list.filter(word => word.length === 4);
+}
+console.log(friendFilter3(wordList));
+
