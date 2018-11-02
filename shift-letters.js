@@ -9,3 +9,15 @@ function shiftLetters(word, number) {
 }
 
 console.log(shiftLetters('Norlandia', 1));
+
+const shiftLetters2 = (word, number) => {
+  return word
+    .split('')
+    .reduce(
+      (result, letter) =>
+        result + String.fromCharCode(letter.charCodeAt(0) + number),
+      ''
+    );
+};
+
+console.log(shiftLetters2('Norlandia', 1));
