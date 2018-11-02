@@ -5,13 +5,8 @@ let minLimit = 3;
 let maxLimit = 6;
 
 function orderedList(list, min, max) {
-  let result = [];
-
-  list.sort((a, b) => a - b).forEach((element) => {
-    if (min <= element && max >= element) {
-      result.push(element);
-    }
-  });
-  return result;
+  return list
+    .sort((a, b) => a - b)
+    .filter((number) => min <= number && max >= number);
 }
 console.log(orderedList(testArray, minLimit, maxLimit));
