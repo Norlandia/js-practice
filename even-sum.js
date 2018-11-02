@@ -27,7 +27,7 @@ const evenSum2 = (numbers) => {
 const evenSum3 = (numbers) => {
   return numbers
     .filter((number) => number % 2 === 0)
-    .reduce((sum, accumulator) => sum + accumulator);
+    .reduce((sum, nextValue) => sum + nextValue);
 };
 
 console.log(evenSum(myArray));
