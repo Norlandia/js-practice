@@ -1,4 +1,6 @@
-'use strict'
+'use strict';
+
+//sum of even numbers in an array
 
 let myArray = [1, 2, 3, 4, 5];
 
@@ -12,9 +14,6 @@ function evenSum(numbers) {
   return result;
 }
 
-console.log(evenSum(myArray));
-
-
 const evenSum2 = (numbers) => {
   let result = 0;
   for (let i = 0; i < numbers.length; i++) {
@@ -23,8 +22,14 @@ const evenSum2 = (numbers) => {
     }
   }
   return result;
-}
+};
 
+const evenSum3 = (numbers) => {
+  return numbers
+    .filter((number) => number % 2 === 0)
+    .reduce((sum, accumulator) => sum + accumulator);
+};
+
+console.log(evenSum(myArray));
 console.log(evenSum2(myArray));
-
-console.log(myArray.reduce((x , y) => x * y, 1));
+console.log(evenSum3(myArray));
