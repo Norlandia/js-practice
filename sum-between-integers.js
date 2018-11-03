@@ -4,7 +4,6 @@ let a = 3;
 let b = -2;
 
 function getSum(firstNumber, secondNumber) {
-  let result = 0;
   let numberArray = [];
   let allNumbers = [];
 
@@ -15,11 +14,7 @@ function getSum(firstNumber, secondNumber) {
     allNumbers.push(i);
   }
 
-  for (let i = 0; i < allNumbers.length; i++) {
-    result += allNumbers[i];
-  }
-
-  return result;
+  return allNumbers.reduce((value, nextValue) => value + nextValue);
 }
 
 console.log(getSum(a, b));
