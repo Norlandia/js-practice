@@ -31,9 +31,8 @@ const matrixCoordinate2 = (matrixInput, coordinateInput) => {
 
   for (let i = -1; i <= 1; i++ ) {
     for (let j = -1; j <= 1; j++) {
-      if (!(i === 0 && j === 0)) {
-        result += matrixInput[x + i] && matrixInput[x + i][y + j] ? matrixInput[x + i][y + j] : 0;
-      }
+      if (i === 0 && j === 0) continue;
+      result += matrixInput[x + i] && matrixInput[x + i][y + j] ? matrixInput[x + i][y + j] : 0;
     }
   }
   return result;
