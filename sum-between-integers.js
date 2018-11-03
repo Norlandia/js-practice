@@ -3,18 +3,12 @@
 let a = 3;
 let b = -2;
 
-function getSum(firstNumber, secondNumber) {
-  let numberArray = [];
-  let allNumbers = [];
-
-  numberArray.push(firstNumber, secondNumber);
-  numberArray.sort((a, b) => a - b);
-
-  for (let i = numberArray[0]; i <= numberArray[1]; i++) {
-    allNumbers.push(i);
+function getSum(x, y) {
+  let result = 0;
+  for (let i = Math.min(x, y); i <= Math.max(x, y); i++) {
+    result += i;
   }
-
-  return allNumbers.reduce((value, nextValue) => value + nextValue);
+  return result;
 }
 
 console.log(getSum(a, b));
