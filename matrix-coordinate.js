@@ -2,7 +2,7 @@
 
 let matrix = [[1, 2, 3, 4], [2, 3, 4, 8], [3, 4, 5, 9]];
 
-let coordinate = [1, 1];
+let coordinates = [1, 1];
 
 function matrixCoordinate(matrixInput, coordinateInput) {
   let result = 0;
@@ -21,4 +21,23 @@ function matrixCoordinate(matrixInput, coordinateInput) {
   return result;
 }
 
-console.log(matrixCoordinate(matrix, coordinate));
+console.log(matrixCoordinate(matrix, coordinates));
+
+
+const matrixCoordinate2 = (matrixInput, coordinateInput) => {
+  let result = 0;
+  let x = coordinateInput[0];
+  let y = coordinateInput[1];
+
+  for (let i = -1; i <= 1; i++ ) {
+    for (let j = -1; j <= 1; j++) {
+      if (!(i === 0 && j === 0)) {
+        result += matrixInput[x + i] && matrixInput[x + i][y + j] ? matrixInput[x + i][y + j] : 0;
+      }
+    }
+  }
+  return result;
+};
+
+console.log(matrixCoordinate2(matrix, coordinates));
+
