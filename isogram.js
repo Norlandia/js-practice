@@ -26,4 +26,11 @@ function isIsogram(word) {
   return true;
 }
 
-console.log(isIsogram(testWord3));
+//console.log(isIsogram(testWord3));
+
+const isIsogram2 = (word) => {
+  return !/(\w).*\1/i.test(word);
+}
+
+console.log(isIsogram2(testWord3));
+
