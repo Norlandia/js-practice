@@ -15,34 +15,34 @@ let wallet = {
   5: 1,
 };
 
-let price = 10000000;
+let price = 33250;
 
-function countMoney(myMoney, moneyToPay) {
+const getWalletContent = (myMoney) => {
+  return Object.entries(myMoney)
+    .filter((value) => value[1] > 0)
+    .map((e) => [+e[0], e[1]])
+    .reverse();
+};
+
+const getDoughSpent = (moneyToPay) => {
+  let walletContent = getWalletContent(wallet);
   let result = {};
   let remaining = moneyToPay;
 
-  let moneyOArray = Object.entries(myMoney);
+  for (let i = 0; i < walletContent.length; i++) {
+    for (let j = walletContent[i][1]; j > 0; j--) {
+      if (remaining >= walletContent[i][0]) {
+        remaining -= walletContent[i][0];
 
-  for (let i = 0; i < moneyOArray.length; i++) {
-    moneyOArray[i][0] = +moneyOArray[i][0];
-  }
-
-  moneyOArray = moneyOArray.filter((value) => value[1] > 0);
-  moneyOArray.reverse();
-
-  for (let i = 0; i < moneyOArray.length; i++) {
-    for (let j = moneyOArray[i][1]; j > 0; j--) {
-      if (remaining >= moneyOArray[i][0]) {
-        remaining -= moneyOArray[i][0];
-        if (result[moneyOArray[i][0]]) {
-          result[moneyOArray[i][0]]++;
+        if (result[walletContent[i][0]]) {
+          result[walletContent[i][0]]++;
         } else {
-          result[moneyOArray[i][0]] = 1;
+          result[walletContent[i][0]] = 1;
         }
       }
     }
   }
   return remaining === 0 ? result : {};
-}
+};
 
-console.log(countMoney(wallet, price));
+console.log(getDoughSpent(price));
