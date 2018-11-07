@@ -1,25 +1,21 @@
 'use strict';
 
-let testList = [1, 1, 1, 1, 2, 3, 3, 3];
-let occurrance = 4;
+let testList = [1, 2, 1, 2, 3, 3, 3, 1, 1, 2];
+let occurrance = 2;
 
 function deleteNth(list, n) {
-  let listObject = {};
   let result = [];
+  let listObject = {};
 
-  list.map((number) => {
-    if (listObject[number]) {
-      listObject[number]++;
-    } else {
+  for (let number of list) {
+    if (!listObject[number]) {
       listObject[number] = 1;
+      result.push(number);
+    } else if (listObject[number] < n) {
+      listObject[number]++;
+      result.push(number);
     }
-  });
-
-  Object.keys(listObject).map((key) => {
-    for (let i = 0; i < Math.min(listObject[key], n); i++) {
-      result.push(+key);
-    }
-  });
+  }
 
   return result;
 }
