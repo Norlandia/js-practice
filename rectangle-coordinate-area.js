@@ -6,7 +6,7 @@ function getArea(coordinates) {
   let shoelace = 0;
   for (let i = 0; i < coordinates.length - 1; i++) {
     shoelace +=
-      coordinates[i][0] * coordinates[ i+1 % coordinates.length][1] - coordinates[i][1] * coordinates[ i+1 % coordinates.length][0];
+      coordinates[i][0] * coordinates[i+1 % coordinates.length][1] - coordinates[i][1] * coordinates[i+1 % coordinates.length][0];
   }
 
   return (Math.abs(shoelace / 2));
