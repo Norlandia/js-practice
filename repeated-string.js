@@ -3,25 +3,30 @@
 let testString = 'aab';
 let number = 11;
 
-function repeatedString(s, n) {
-  let result = 0;
-  s = s.split('');
-  console.log(s);
+function countA(inputString) {
+  let aCount = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === 'a') {
-      result++;
+  inputString = inputString.split('');
+
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] === 'a') {
+      aCount++;
     }
   }
+
+  return aCount;
+}
+
+function repeatedString(s, n) {
+  let result = countA(s);
+
   result = result * Math.floor(n / s.length);
 
   let remaining = n % s.length;
 
-  for (let i = 0; i < remaining; i++) {
-    if (s[i] === 'a') {
-      result++;
-    }
-  }
+  s = s.slice(0, remaining);
+
+  result += countA(s);
 
   return result;
 }
