@@ -3,7 +3,7 @@
 let m = ['give', 'me', 'hello', 'grand', 'today', 'night'];
 let n = ['give', 'two', 'alma', 'today'];
 
-function checkMagazine(magazine, note) {
+function countWords(magazine) {
   let magazineObj = {};
 
   for (let word of magazine) {
@@ -13,7 +13,10 @@ function checkMagazine(magazine, note) {
       magazineObj[word] = 1;
     }
   }
+  return magazineObj;
+}
 
+function matchWords(magazineObj, n) {
   for (let i = 0; i < n.length; i++) {
     if (magazineObj[n[i]]) {
       magazineObj[n[i]]--;
@@ -24,8 +27,9 @@ function checkMagazine(magazine, note) {
   }
   console.log('Yes');
 }
-checkMagazine(m, n);
 
-// if (magazineOnj[n[i]]) {
-//
-//}
+function checkMagazine(magazine, note) {
+  let wordsInMagazine = countWords(magazine);
+  matchWords(wordsInMagazine, note);
+}
+checkMagazine(m, n);
