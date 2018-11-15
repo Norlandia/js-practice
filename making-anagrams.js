@@ -1,11 +1,10 @@
 'use strict';
 
-let s1 = 'norii';
-let s2 = 'petiii';
+let s1 = 'fsqoiaidfaukvngpsugszsnseskicpejjvytviya';
+let s2 = 'ksmfgsxamduovigbasjchnoskolfwjhgetnmnkmcphqmpwnrrwtymjtwxget';
 
-function getAnagram(word, word2) {
+function countLetters(word) {
   let letterObj = {};
-  let matchingLetterCount = 0;
 
   for (let letter of word) {
     if (letterObj[letter]) {
@@ -14,6 +13,11 @@ function getAnagram(word, word2) {
       letterObj[letter] = 1;
     }
   }
+  return letterObj;
+}
+
+function countMatches(letterObj, word2) {
+  let matchingLetterCount = 0;
 
   for (let letter2 of word2) {
     if (letterObj[letter2]) {
@@ -21,8 +25,14 @@ function getAnagram(word, word2) {
       letterObj[letter2]--;
     }
   }
+  return matchingLetterCount;
+}
 
-  return word.length + word2.length - 2 * matchingLetterCount;
+function getAnagram(word, word2) {
+  let letterCount = countLetters(word);
+  let matchCount = countMatches(letterCount, word2);
+
+  return word.length + word2.length - 2 * matchCount;
 }
 
 console.log(getAnagram(s1, s2));
