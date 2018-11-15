@@ -1,13 +1,7 @@
 'use strict';
 
-function getTrailingDays(expenditure, start, amount) {
-
-  expenditure.slice(start, amount);
-  let trailingDays = [];
-  for (let i = start; i < start + amount; i++) {
-    trailingDays.push(expenditure[i]);
-  }
-  return trailingDays;
+function getTrailingDays(expenditure, start, end) {
+  return expenditure.slice(start, end);
 }
 
 function getMedian(trailingDays) {
@@ -23,7 +17,7 @@ function countNotifications(expenditure, d) {
   let notificationCount = 0;
 
   for (let i = d; i < expenditure.length; i++) {
-    let trailingDays = getTrailingDays(expenditure, i - d, d);
+    let trailingDays = getTrailingDays(expenditure, i - d, i);
     let median = getMedian(trailingDays);
     let isFraudalent = isMedianDouble(median, expenditure[i]);
 
