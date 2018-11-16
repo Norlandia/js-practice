@@ -10,7 +10,7 @@ let testMatrix = [
 ];
 
 //counts sum of the hourglass shape in athe 3x3 matrix
-const hourglassSum = (smallMatrix) => {
+const getSum = (smallMatrix) => {
   let hourglassSum = 0;
   for (let i = 0; i < smallMatrix.length; i++) {
     for (let j = 0; j < smallMatrix[i].length; j++) {
@@ -35,13 +35,13 @@ const makeSmallMatrix = (largeMatrix, x, y) => {
 };
 
 //moves 3x3 hg, adds sums to array, returns largest sum
-const getLargestSum = (largeMatrix) => {
+const hourglassSum = (largeMatrix) => {
   let hourglassSumList = [];
 
   for (let i = 0; i < largeMatrix.length - 2; i++) {
     for (let j = 0; j < largeMatrix[i].length - 2; j++) {
       let smallMatrix = makeSmallMatrix(largeMatrix, i, j);
-      let smallMatrixSum = hourglassSum(smallMatrix);
+      let smallMatrixSum = getSum(smallMatrix);
       hourglassSumList.push(smallMatrixSum);
     }
   }
