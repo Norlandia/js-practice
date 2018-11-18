@@ -7,15 +7,8 @@ function diagonalDifference(matrix) {
   let secondSum = 0;
 
   for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (i === j) {
-        firstSum += matrix[i][j];
-      }
-
-      if (j === matrix.length - 1 - i) {
-        secondSum += matrix[i][j];
-      }
-    }
+    firstSum += matrix[i][i];
+    secondSum += matrix[i][matrix.length - 1 - i];
   }
   return Math.abs(firstSum - secondSum);
 }
