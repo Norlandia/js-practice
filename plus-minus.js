@@ -23,6 +23,3 @@ function plusMinus(list) {
 
 plusMinus(testArray);
 
-//positive numbers 0.500000 3/6
-//negative numbers 0.333333 2/6
-// zero 0.166667 1/6
