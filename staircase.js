@@ -7,7 +7,7 @@ function staircase(number) {
     let row = '';
 
     for (let j = 1; j <= number; j++) {
-      if (i <= number - j) {
+      if (j <= number - i) {
         row += ' ' ;
       } else {
         row += '#';
