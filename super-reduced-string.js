@@ -1,6 +1,6 @@
 'use strict';
 
-let testString = 'baab';
+let testString = 'aabb';
 
 function superReducedString(string) {
   let newString = '';
@@ -20,3 +20,20 @@ function superReducedString(string) {
 }
 
 console.log(superReducedString(testString));
+
+
+function superReducedString2(string) {
+  string = string.split('');
+  string.sort();
+
+  for (let i = 0; i < string.length; ) {
+    if (string[i] === string[i + 1]) {
+      string.splice(0, 2);
+    } else {
+      i++;
+    }
+  }
+  return string.length ? string : 'Empty String';
+}
+
+console.log(superReducedString2(testString));
