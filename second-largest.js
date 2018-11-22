@@ -1,6 +1,6 @@
 'use strict';
 
-let testArray = [2, 3, 6, 6, 5];
+let testArray = [2, 3, 6, 6, 5, 7];
 
 function secondLargest(list) {
   list.sort((a, b) => a - b);
@@ -14,9 +14,20 @@ function secondLargest(list) {
 }
 
 function secondLargest2(list) {
+  let max = 0;
+  let secondMax = 0;
+
   let array = [...new Set(list)];
-  array.sort((a, b) => b - a);
-  return array[1];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      secondMax = max;
+      max = array[i];
+    } else if (array[i] > secondMax) {
+      secondMax = array[i];
+    }
+  }
+  return secondMax;
 }
 
 console.log(secondLargest2(testArray));
