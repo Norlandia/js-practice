@@ -8,8 +8,7 @@ function loops(word) {
 
   let concatted = vowels
     .concat(word)
-    .join()
-    .replace(/\W/g, '');
+    .join(``);
 
   for (let letter of concatted) {
     console.log(letter);
