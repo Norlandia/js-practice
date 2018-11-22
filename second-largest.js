@@ -1,6 +1,6 @@
 'use strict';
 
-let testArray = [2, 3, 6, 6, 5, 7];
+let testArray = [2, 3, 6, 6, 5];
 
 function secondLargest(list) {
   list.sort((a, b) => a - b);
@@ -12,4 +12,11 @@ function secondLargest(list) {
     }
   }
 }
-console.log(secondLargest(testArray));
+
+function secondLargest2(list) {
+  let array = [...new Set(list)];
+  array.sort((a, b) => b - a);
+  return array[1];
+}
+
+console.log(secondLargest2(testArray));
