@@ -9,7 +9,7 @@ function superReducedString(string) {
   for (let i = 1; i < string.length; ) {
     if (string[i - 1] === string[i]) {
       string.splice(i - 1, 2);
-      i = 1;
+      i--;
     } else {
       i++;
     }
