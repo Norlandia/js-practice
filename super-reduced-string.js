@@ -1,39 +1,20 @@
 'use strict';
 
-let testString = 'aabb';
+let testString =
+  'acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj';
 
 function superReducedString(string) {
-  let newString = '';
-
   string = string.split('');
-  string.sort();
 
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] !== string[i + 1]) {
-      newString += string[i];
+  for (let i = 1; i < string.length; ) {
+    if (string[i - 1] === string[i]) {
+      string.splice(i - 1, 2);
+      i = 1;
     } else {
       i++;
     }
   }
-
-  return newString ? newString : 'Empty String';
+  return string.length ? string.join().replace(/\W/g, '') : 'Empty String';
 }
 
 console.log(superReducedString(testString));
-
-
-function superReducedString2(string) {
-  string = string.split('');
-  string.sort();
-
-  for (let i = 0; i < string.length; ) {
-    if (string[i] === string[i + 1]) {
-      string.splice(0, 2);
-    } else {
-      i++;
-    }
-  }
-  return string.length ? string : 'Empty String';
-}
-
-console.log(superReducedString2(testString));
