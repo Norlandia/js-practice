@@ -27,7 +27,7 @@ function countApplesAndOranges(
     }
   }
 
-  for (let i = 0; i < apples.length; i++) {
+  for (let i = 0; i < oranges.length; i++) {
     if (
       orangeTree + oranges[i] >= houseStartPoint &&
       orangeTree + oranges[i] <= houseEndPoint
