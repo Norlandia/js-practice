@@ -9,8 +9,17 @@ function caesarCipher(string, shift) {
   for (let i = 0; i < string.length; i++) {
     if (string[i].charCodeAt() >= 97 && string[i].charCodeAt() <= 122) {
       if (string[i].charCodeAt() + shift > 122) {
-        newString +=
-          String.fromCharCode((string[i].charCodeAt() + shift) % 123 + 97);
+        newString += String.fromCharCode(
+          ((string[i].charCodeAt() + shift) % 123) + 97
+        );
+      } else {
+        newString += String.fromCharCode(string[i].charCodeAt() + shift);
+      }
+    } else if (string[i].charCodeAt() >= 65 && string[i].charCodeAt() <= 90) {
+      if (string[i].charCodeAt() + shift > 90) {
+        newString += String.fromCharCode(
+          ((string[i].charCodeAt() + shift) % 91) + 65
+        );
       } else {
         newString += String.fromCharCode(string[i].charCodeAt() + shift);
       }
@@ -22,6 +31,3 @@ function caesarCipher(string, shift) {
 }
 console.log(caesarCipher(testString, k));
 
-// 97-122 ()
-// 65-90
-// after last letter (z) restart form a
