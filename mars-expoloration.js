@@ -1,12 +1,21 @@
 'use strict';
 
-let sosString = 'SOSSOT';
+let sosString = 'SOSOOSOSOSOSOSSOSOSOSOSOSOS';
 
 function marsExploration(s) {
   let result = 0;
 
+  s = s.match(/.{1,3}/g);
+
   for (let i = 0; i < s.length; i++) {
-    if (s[i] !== 'S' && s[i] !== 'O') {
+    
+    if (s[i][0] !== 'S') {
+      result++;
+    } 
+    if (s[i][1] !== 'O') {
+      result++;
+    }
+     if (s[i][2] !== 'S') {
       result++;
     }
   }
