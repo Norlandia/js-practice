@@ -11,3 +11,15 @@ function hackerrankInString(string) {
 }
 console.log(hackerrankInString(stringToCheck));
 
+function hackerrankInString2() {
+  const word = 'hackerrank';
+  let j = 0;
+  for (let i = 0; i < string.length && j < word.length; i++) {
+    if (string[i] === word[j]) {
+      j++;
+    }
+  }
+  return j === word.length ? 'YES' : 'NO';
+}
+
+console.log(hackerrankInString2(stringToCheck));
