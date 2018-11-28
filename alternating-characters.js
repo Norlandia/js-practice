@@ -16,5 +16,12 @@ const alternatingCharacters = (string) => {
   return string.length - letterList.length;
 };
 
-console.log(alternatingCharacters(testString));
+const alternatingCharacters2 = (string) => {
+  let letterList = string.split('');
 
+  letterList = letterList.filter((letter, i) => letter !== letterList[i + 1]);
+
+  return string.length - letterList.length;
+};
+
+console.log(alternatingCharacters2(testString));
