@@ -1,6 +1,6 @@
 'use strict';
 
-let testString = 'acxz';
+let testString = 'acxkz';
 
 const getCharCodes = (string) => {
   return string.split('').map((letter) => letter.charCodeAt());
@@ -35,7 +35,6 @@ const isFunny = (string) => {
   return 'Funny';
 };
 
-
 // other solution
 const isFunny2 = (string) => {
   let charList = getCharCodes(string);
@@ -43,24 +42,15 @@ const isFunny2 = (string) => {
 
   if (absDiff.length % 2 !== 0) {
     absDiff.splice(Math.ceil(absDiff.length / 2) - 1, 1);
-    for (let i = 0; i < absDiff.length && i < absDiff.length - i; ) {
-      if (absDiff[i] === absDiff[absDiff.length - i - 1]) {
-        i++;
-      } else {
-        return 'Not Funny';
-      }
-    }
-    return 'Funny';
-  } else {
-    for (let i = 0; i < absDiff.length && i < absDiff.length - i; ) {
-      if (absDiff[i] === absDiff[absDiff.length - i - 1]) {
-        i++;
-      } else {
-        return 'Not Funny';
-      }
-    }
-    return 'Funny';
   }
+  for (let i = 0; i < absDiff.length && i < absDiff.length - i; ) {
+    if (absDiff[i] === absDiff[absDiff.length - i - 1]) {
+      i++;
+    } else {
+      return 'Not Funny';
+    }
+  }
+  return 'Funny';
 };
 
 console.log(isFunny2(testString));
