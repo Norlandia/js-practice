@@ -26,4 +26,24 @@ const gemstones = (list) => {
   }
   return gemstones;
 };
-console.log(gemstones(rocks));
+
+const gemstones2 = (list) => {
+  let gemstones = 0;
+  let letterObject = {};
+
+  for (let i = 0; i < list.length; i++) {
+    let mySet = new Set([...list[i]]);
+    for (let letter of mySet) {
+      if (letterObject[letter]) {
+        letterObject[letter]++;
+      } else {
+        letterObject[letter] = 1;
+      }
+    }
+  }
+  for (let value of Object.values(letterObject)) {
+    value === list.length ? gemstones++ : gemstones;
+  }
+  return gemstones;
+};
+console.log(gemstones2(rocks));
