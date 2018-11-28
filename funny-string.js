@@ -15,9 +15,9 @@ const absoluteDifference = (list) => {
   return absDiff;
 };
 
-const  reverseList = (list) => {
+const reverseList = (list) => {
   return list.reverse();
-}
+};
 
 const isFunny = (string) => {
   let charList = getCharCodes(string);
@@ -33,5 +33,34 @@ const isFunny = (string) => {
     }
   }
   return 'Funny';
-}
-console.log(isFunny(testString));
+};
+
+
+// other solution
+const isFunny2 = (string) => {
+  let charList = getCharCodes(string);
+  let absDiff = absoluteDifference(charList);
+
+  if (absDiff.length % 2 !== 0) {
+    absDiff.splice(Math.ceil(absDiff.length / 2) - 1, 1);
+    for (let i = 0; i < absDiff.length && i < absDiff.length - i; ) {
+      if (absDiff[i] === absDiff[absDiff.length - i - 1]) {
+        i++;
+      } else {
+        return 'Not Funny';
+      }
+    }
+    return 'Funny';
+  } else {
+    for (let i = 0; i < absDiff.length && i < absDiff.length - i; ) {
+      if (absDiff[i] === absDiff[absDiff.length - i - 1]) {
+        i++;
+      } else {
+        return 'Not Funny';
+      }
+    }
+    return 'Funny';
+  }
+};
+
+console.log(isFunny2(testString));
