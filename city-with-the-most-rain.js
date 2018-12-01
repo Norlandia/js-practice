@@ -6,6 +6,7 @@ let testString =
 const mostRainyDays = (file) => {
   let cities = [];
   let cityObject = {};
+  let max;
 
   file = file.split('\n').filter((element) => element.match(/RAINY/g));
   for (let i = 0; i < file.length; i++) {
@@ -16,17 +17,12 @@ const mostRainyDays = (file) => {
     cityObject[city] ? ++cityObject[city] : (cityObject[city] = 1);
   }
 
-  let max = 0;
-  let result;
-
-  Object.keys(cityObject).forEach(key => {
-    if (cityObject[key] > max) {
-      
-      max = cityObject[key];
-      result = key;
+  Object.entries(cityObject).forEach((entry) => {
+    if (!max || entry[1] > max[1]) {
+      max = entry;
     }
-  })
-  return result;
+  });
+  return max[0];
 };
 
 console.log(mostRainyDays(testString));
