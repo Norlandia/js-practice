@@ -10,11 +10,7 @@ const greatMatrix = (m1, m2) => {
   for (let i = 0; i < m1.length; i++) {
     let smallLists = [];
     for (let j = 0; j < m1[i].length; j++) {
-      if (m1[i][j] > m2[i][j]) {
-        smallLists.push(m1[i][j]);
-      } else {
-        smallLists.push(m2[i][j]);
-      }
+      m1[i][j] > m2[i][j] ? smallLists.push(m1[i][j]) : smallLists.push(m2[i][j]);
     }
     result.push(smallLists);
   }
