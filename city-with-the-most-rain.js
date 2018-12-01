@@ -17,12 +17,7 @@ const mostRainyDays = (file) => {
     cityObject[city] ? ++cityObject[city] : (cityObject[city] = 1);
   }
 
-  Object.entries(cityObject).forEach((entry) => {
-    if (!max || entry[1] > max[1]) {
-      max = entry;
-    }
-  });
-  return max[0];
+  return Object.entries(cityObject).reduce((a, b) => a[1] > b[1] ? a : b)[0];
 };
 
 console.log(mostRainyDays(testString));
