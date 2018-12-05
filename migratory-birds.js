@@ -16,9 +16,7 @@ const migratoryBirds = (birdList) => {
     if (birdEntries[i][1] > result[1]) {
       result = birdEntries[i];
     } else if (birdEntries[i][1] === result[1]) {
-      if (birdEntries[i][0] < result[0]) {
-        result = birdEntries[i];
-      }
+      birdEntries[i][0] < result[0] ? (result = birdEntries[i]) : result;
     }
   }
 
