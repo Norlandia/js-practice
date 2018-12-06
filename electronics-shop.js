@@ -13,16 +13,17 @@ const getMoneySpent = (keyboards, drives, money) => {
     highestPrice = keyboards[0];
     for (let i = 0; i < drives.length; i++) {
       if (highestPrice + drives[i] <= money) {
-        console.log(highestPrice + drives[i]);
+        return highestPrice + drives[i];
       }
     }
   } else {
     highestPrice = drives[0];
     for (let i = 0; i < keyboards.length; i++) {
       if (highestPrice + keyboards[i] <= money) {
-        console.log(highestPrice + keyboards[i]);
+        return highestPrice + keyboards[i];
       }
     }
   }
+  return -1;
 };
-getMoneySpent(keyboardPrices, drivePrices, budget);
+console.log(getMoneySpent(keyboardPrices, drivePrices, budget));
