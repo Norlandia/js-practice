@@ -41,4 +41,23 @@ const designerPdfViewer = (heightList, word) => {
   return Math.max(...charcodeList) * charcodeList.length;
 };
 
-console.log(designerPdfViewer(letterHeights, testWord));
+const designerPdfViewer2 = (h, word) => {
+  return (
+    word
+      .split('')
+      .reduce(
+        (m, c) => (h[c.charCodeAt(0) - 97] > m ? h[c.charCodeAt(0) - 97] : m),
+        0
+      ) * word.length
+  );
+};
+
+const designerPdfViewer3 = (h, word) => {
+  return (
+    Math.max(...word.split('').map((c) => h[c.charCodeAt(0) - 97])) *
+    word.length
+  );
+};
+
+// console.log(designerPdfViewer(letterHeights, testWord));
+console.log(designerPdfViewer3(letterHeights, testWord));
