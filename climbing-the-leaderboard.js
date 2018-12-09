@@ -1,7 +1,7 @@
 'use strict';
 
-let leaderboardScores = [100, 90, 90, 80, 75, 60];
-let aliceScores = [50, 65, 77, 90, 102];
+let leaderboardScores = [100, 100, 50, 40, 40, 20, 10];
+let aliceScores = [5, 25, 50, 120];
 
 const climbingLeaderboard = (leaderboard, alice) => {
   let result = [];
@@ -18,6 +18,8 @@ const climbingLeaderboard = (leaderboard, alice) => {
   }
   return result;
 };
+
+
 
 const climbingLeaderboard2 = (leaderboard, alice) => {
   let result = [];
@@ -39,21 +41,23 @@ const climbingLeaderboard2 = (leaderboard, alice) => {
 
 
 
-const binarySearch = (arr, i, score) => {
-  let c = Math.floor(arr.length / 2);
+const binarySearch = (arr, start, end, score) => {
+  let c = Math.floor((start + end) / 2);
 
   if (arr[c] === score) {
-    return i + 1;
-  } else if (arr.length === 1) {
-    if (arr[0] > score) {
-      return i + 1;
+    return c;
+  } else if (end - start === 1) {
+    if (score < arr[end]) {
+      return end + 1;
+    } else if (score < arr[start]) {
+      return end;
     } else {
-      return i;
+      return start;
     }
-  } else if (arr[c] > score) {
-    return binarySearch(arr.slice(c), i + Math.ceil(c / 2), score);
+  } else if (score < arr[c]) {
+    return binarySearch(arr, c, end, score);
   } else {
-    return binarySearch(arr.slice(0, c), i - Math.floor(c / 2), score);
+    return binarySearch(arr, start, c, score);
   }
 };
 
@@ -64,11 +68,10 @@ const climbingLeaderboard3 = (leaderboard, alice) => {
 
   for (let score of alice) {
     result.push(
-      binarySearch(leaderboard, Math.floor(leaderboard.length / 2), score)
+      binarySearch(leaderboard, 0, leaderboard.length - 1, score) + 1
     );
   }
 
   return result;
 };
 console.log(climbingLeaderboard3(leaderboardScores, aliceScores));
-
