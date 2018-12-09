@@ -19,4 +19,22 @@ const climbingLeaderboard = (leaderboard, alice) => {
   return result;
 };
 
-console.log(climbingLeaderboard(leaderboardScores, aliceScores));
+const climbingLeaderboard2 = (leaderboard, alice) => {
+  let result = [];
+
+  leaderboard = [...new Set(leaderboard)];
+
+  for (let score of alice) {
+    for (let i = 0; i < leaderboard.length; i++) {
+      if (score >= leaderboard[i]) {
+        result.push(i + 1);
+        break;
+      } else if (i === leaderboard.length - 1) {
+        result.push(leaderboard.length + 1);
+      }
+    }
+  }
+  return result;
+};
+
+console.log(climbingLeaderboard2(leaderboardScores, aliceScores));
