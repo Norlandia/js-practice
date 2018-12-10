@@ -4,22 +4,21 @@ let from = 20;
 let to = 23;
 let divisor = 6;
 
-const beautifulDays = (start, end, k) => {
-  let result = 0;
-  let daysList = [];
-  let reverseNumList = [];
+const range = (start, end) => {
+  return [...Array(1 + end - start).keys()].map((index) => index + start);
+};
 
-  for (let i = start - 1; i < end; i++) {
-    daysList.push(i + 1);
-    reverseNumList.push(+((i+1) + '').split('').reverse().join(''))
-  }
-  
-  for (let i = 0; i < daysList.length; i++) {
-    if (Math.abs(daysList[i] - reverseNumList[i]) % k === 0) {
-      result++;
-    }
-  }
-  return result;
+const reverseNumber = (number) => {
+  return +(number + '')
+    .split('')
+    .reverse()
+    .join('');
+};
+
+const beautifulDays = (start, end, k) => {
+  return range(start, end)
+    .map((element) => Math.abs(element - reverseNumber(element)))
+    .filter((number) => number % k === 0).length;
 };
 
 console.log(beautifulDays(from, to, divisor));
