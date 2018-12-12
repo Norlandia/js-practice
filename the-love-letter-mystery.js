@@ -5,16 +5,10 @@ let testString = 'cba';
 const loveLetterMytery = (string) => {
   let changeCount = 0;
 
-  for (
-    let i = 0, j = string.length - 1;
-    i < Math.floor(string.length / 2);
-    i++, j--
-  ) {
-    let begin = string.charCodeAt(i);
-    let end = string.charCodeAt(j);
-      changeCount += Math.abs(end - begin);
+  for (let i = 0; i < Math.floor(string.length / 2); i++) {
+
+    changeCount += Math.abs(string.charCodeAt(string.length - i - 1) - string.charCodeAt(i));
   }
   return changeCount;
 };
 console.log(loveLetterMytery(testString));
-
