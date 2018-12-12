@@ -1,6 +1,6 @@
 'use strict';
 
-let testString = 'abc';
+let testString = 'cba';
 
 const loveLetterMytery = (string) => {
   let changeCount = 0;
@@ -10,18 +10,11 @@ const loveLetterMytery = (string) => {
     i < Math.floor(string.length / 2);
     i++, j--
   ) {
-    if (string.charCodeAt(i) !== string.charCodeAt(j)) {
-      string.charCodeAt(j--);
-      changeCount++;
-      i--;
-      j++;
-    }
+    let begin = string.charCodeAt(i);
+    let end = string.charCodeAt(j);
+      changeCount += Math.abs(end - begin);
   }
   return changeCount;
 };
 console.log(loveLetterMytery(testString));
-
-// abcd
-// abcba
-
 
