@@ -11,10 +11,10 @@ const pickingNumbers = (list) => {
   }
 
   for (let key of Object.keys(numberObject)) {
-    if (
-      numberObject[+key + 1] &&
-      numberObject[key] + numberObject[+key + 1] > max
-    ) {
+    if (numberObject[key] > max) {
+      max = numberObject[key];
+    }
+    if (numberObject[+key + 1] && numberObject[key] + numberObject[+key + 1] > max) {
       max = numberObject[key] + numberObject[+key + 1];
     }
   }
