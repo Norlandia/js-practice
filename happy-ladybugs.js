@@ -11,8 +11,6 @@ const isUnderline = (letterObj) => {
 
 const keyMoreThanOne = (letterObj) => {
   for (let entry of Object.entries(letterObj)) {
-    console.log(entry);
-    
     if (entry[0] !== '_' && entry[1] > 1) {
       continue;
     } else if (entry[0] !== '_' && entry[1] <= 1) {
@@ -22,6 +20,21 @@ const keyMoreThanOne = (letterObj) => {
   return true;
 };
 
+const alreadyAllHasGoodNeighbor = (string) => {
+  if (string.length === 1 && string[0] !== '_') {
+    return false;
+  } else {
+    for (let i = 0; i < string.length; ) {
+      if (string[i - 1] === string[i] || string[i + 1] === string[i]) {
+        i++;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  }
+};
+
 const happyLadybugs = (string) => {
   let letterObj = {};
 
@@ -29,13 +42,11 @@ const happyLadybugs = (string) => {
     letterObj[letter] ? ++letterObj[letter] : (letterObj[letter] = 1);
   }
 
-  return isUnderline(letterObj) && keyMoreThanOne(letterObj) ? 'YES' : 'NO';
+  return alreadyAllHasGoodNeighbor(string) ||
+    (isUnderline(letterObj) && keyMoreThanOne(letterObj))
+    ? 'YES'
+    : 'NO';
 };
 
-console.log(happyLadybugs('RBY_YBR'));
+console.log(happyLadybugs('P______'));
 
-// DD__FQ_QQF
-// DD_FFQ_QQ_
-// DD_FFQQQ__
-
-// AABBCC
