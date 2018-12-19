@@ -33,7 +33,11 @@ const anagramChecker2 = (string1, string2) => {
   }
 
   for (let letter of string2) {
-    letterObj1[letter] ? --letterObj1[letter] : (letterObj1[letter] = 1);
+    if (letterObj1[letter]) {
+      --letterObj1[letter];
+    } else {
+      return 'NO';
+    }
   }
 
   for (let value of Object.values(letterObj1)) {
