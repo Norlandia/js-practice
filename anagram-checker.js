@@ -25,4 +25,23 @@ const anagramChecker = (string1, string2) => {
   return 'YES';
 };
 
-console.log(anagramChecker('coool', 'occclb'));
+const anagramChecker2 = (string1, string2) => {
+  let letterObj1 = {};
+
+  for (let letter of string1) {
+    letterObj1[letter] ? ++letterObj1[letter] : (letterObj1[letter] = 1);
+  }
+
+  for (let letter of string2) {
+    letterObj1[letter] ? --letterObj1[letter] : (letterObj1[letter] = 1);
+  }
+
+  for (let value of Object.values(letterObj1)) {
+    if (value !== 0) {
+      return 'NO';
+    }
+  }
+  return 'YES';
+};
+
+console.log(anagramChecker2('coolo', 'cccol'));
