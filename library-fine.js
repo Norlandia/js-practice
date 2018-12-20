@@ -1,24 +1,19 @@
 'use strict';
 
-let returnDate = [6, 6, 2016];
-let dueDate = [6, 6, 2015];
+const libraryFine = (rd1, rm1, ry1, dd2, dm2, dy2) => {
 
-const libraryFine = (returned, due) => {
-
-  for (let i = 0; i < dueDate.length; i++) {
-    if (due[0] >= returned[0] && due[1] >= returned[1] && due[2] >= returned[2]) {
+    if (dd2 >= rd1 && dm2 >= rm1 && dy2 >= ry1) {
       return 0;
     }
-    if (due[2] < returned[2]) {
+    if (dy2 < ry1) {
       return 10000;
-    } else if (due[1] < returned[1]) {
-      return (returned[1] - due[1]) * 500;
-    } else if (due[0] < returned[0]) {
-      return (returned[0] - due[0]) * 15;
+    } else if (dm2 < rm1) {
+      return (rm1 - dm2) * 500;
+    } else if (dd2 < rd1) {
+      return (rd1 - dd2) * 15;
     }
-  }
 };
-console.log(libraryFine(returnDate, dueDate));
+console.log(libraryFine(9, 6, 2015, 6, 6, 2015));
 
 // before due --> 0 
 
