@@ -3,7 +3,7 @@
 const halloweenSale = (originalPrice, discount, min, wallet) => {
   let games = 0;
   let i = originalPrice;
-  while (i < wallet) {
+  while (i <= wallet) {
     if (i > min) {
       wallet -= i;
       games += 1;
@@ -16,4 +16,4 @@ const halloweenSale = (originalPrice, discount, min, wallet) => {
   return games;
 };
 
-console.log(halloweenSale(20, 3, 6, 80));
+console.log(halloweenSale(1, 100, 1, 9777));
