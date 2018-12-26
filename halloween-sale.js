@@ -16,4 +16,20 @@ const halloweenSale = (originalPrice, discount, min, wallet) => {
   return games;
 };
 
-console.log(halloweenSale(1, 100, 1, 9777));
+const halloweenSale2 = (originalPrice, discount, min, wallet) => {
+  let counter = 0;
+  let newWallet = wallet;
+  let remaining = 0;
+
+  while (originalPrice >= min && originalPrice <= newWallet) {
+    newWallet -= originalPrice;
+    counter += 1;
+    originalPrice -= discount;
+  }
+  if (originalPrice <= min) {
+    remaining = newWallet / min;
+  }
+  return originalPrice > wallet ? 0 : Math.floor(remaining + counter);
+};
+console.log(halloweenSale2(20, 3, 6, 80));
+
