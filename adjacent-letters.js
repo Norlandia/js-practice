@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let testString = 'yyycwwhttaaac';
 
@@ -15,7 +15,6 @@ const adjacentLetters = (string) => {
     }
   }
   return result;
-}
+};
 
 console.log(adjacentLetters(testString));
-
