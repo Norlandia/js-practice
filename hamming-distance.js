@@ -20,8 +20,20 @@ const checkLetters = (word, list) => {
   }
   return result;
 };
+const maxThree = (word, testWord) => {
+  let counter = 0;
 
-console.log(checkLetters(testString, listToCheck));
+  [...word].forEach((letter, i) => {
+    (letter !== testWord[i]) && counter++;
+  });
+  return counter <= 3;
+};
+
+const checkLetters2 = (testWord, list) => {
+  return list.filter((word) => maxThree(word, testWord));
+};
+
+console.log(checkLetters2(testString, listToCheck));
 
 // loop string
 // <= 3
