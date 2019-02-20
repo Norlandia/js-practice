@@ -20,13 +20,14 @@ const checkLetters = (word, list) => {
   }
   return result;
 };
-const maxThree = (word, testWord) => {
-  let counter = 0;
 
-  [...word].forEach((letter, i) => {
-    (letter !== testWord[i]) && counter++;
-  });
-  return counter <= 3;
+const maxThree = (word, testWord) => {
+  return (
+    [...word].reduce(
+      (counter, letter, i) => (letter !== testWord[i] ? ++counter : counter),
+      0
+    ) <= 3
+  );
 };
 
 const checkLetters2 = (testWord, list) => {
