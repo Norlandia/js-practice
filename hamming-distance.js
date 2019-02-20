@@ -24,7 +24,7 @@ const checkLetters = (word, list) => {
 const maxThree = (word, testWord) => {
   return (
     [...word].reduce(
-      (counter, letter, i) => (letter !== testWord[i] ? ++counter : counter),
+      (counter, letter, i) => counter + (letter !== testWord[i]),
       0
     ) <= 3
   );
